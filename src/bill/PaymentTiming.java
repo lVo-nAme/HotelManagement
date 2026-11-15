@@ -1,16 +1,16 @@
 package bill;
 
-public enum PaymentTiming {
-    ON_USE("Thanh toán ngay khi sử dụng"),
-    ON_CHECKOUT("Thanh toán khi trả phòng");
+public enum ThoiDiemThanhToan {
+    NGAY_SU_DUNG("Thanh toán ngay khi sử dụng"),
+    KHI_TRA_PHONG("Thanh toán khi trả phòng");
 
-    private final String description;
+    private final String moTa;
 
-    PaymentTiming(String description) {
-        this.description = description;
+    ThoiDiemThanhToan(String moTa) {
+        this.moTa = moTa;
     }
 
-    public String getDescription() {
-        return description;
+    public String getMoTa() {
+        return moTa;
     }
 }
