@@ -23,11 +23,11 @@ public class QuanLyHoaDon {
     private int soLuongHoaDon;
     private int soLuongKhuyenMai;
 
-    public BillList() {
+    public QuanLyHoaDon() {
         this(DUNG_LUONG_MAC_DINH);
     }
 
-    public BillList(int sucChua) {
+    public QuanLyHoaDon(int sucChua) {
         int kichThuoc = sucChua > 0 ? sucChua : DUNG_LUONG_MAC_DINH;
         danhSachHoaDon = new HoaDon[kichThuoc];
         danhSachKhuyenMai = new KhuyenMai[kichThuoc];
