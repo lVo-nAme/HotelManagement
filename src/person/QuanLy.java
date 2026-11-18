@@ -1,3 +1,5 @@
+package person;
+
 import java.util.Scanner;
 
 public class QuanLy extends NhanVien {

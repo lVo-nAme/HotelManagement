@@ -1,3 +1,5 @@
+package person;
+
 import java.util.Scanner;
 
 public abstract class Nguoi {
@@ -66,15 +68,15 @@ public abstract class Nguoi {
     public void nhapThongTin() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhập mã định danh: ");
-        this.maNguoi = sc.nextLine();
+        this.maNguoi = sc.nextLine().trim();
         System.out.print("Nhập họ tên: ");
-        this.hoTen = sc.nextLine();
+        this.hoTen = sc.nextLine().trim();
         System.out.print("Nhập số điện thoại: ");
-        this.soDienThoai = sc.nextLine();
+        this.soDienThoai = sc.nextLine().trim();
         System.out.print("Nhập CCCD: ");
-        this.cccd = sc.nextLine();
+        this.cccd = sc.nextLine().trim();
         System.out.print("Nhập email: ");
-        this.email = sc.nextLine();
+        this.email = sc.nextLine().trim();
     }
 
     // Phương thức trừu tượng hiển thị thông tin
