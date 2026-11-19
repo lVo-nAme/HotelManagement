@@ -14,7 +14,7 @@ import payment.IThanhToan;
 import util.InputHelper;
 
 public class QuanLyHoaDon {
-    private static final int DUNG_LUONG_MAC_DINH = 10;
+    private static final int DUNG_LUONG_MAC_DINH = 100;
     private static final String TEN_FILE_HOA_DON = "hoadon.txt";
     private static final String TEN_FILE_KHUYEN_MAI = "khuyenmai.txt";
 
