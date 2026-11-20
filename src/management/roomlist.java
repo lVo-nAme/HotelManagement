@@ -30,6 +30,48 @@ class QuanLyPhong {
         } else {
             System.out.println("=> Danh sach day!");
         }
+    } 
+    // 2. THÊM MỚI: Hàm nhập thông tin từ bàn phím và tự thêm phòng
+    public void themPhong(Scanner sc) {
+        System.out.println("--- Them moi 1 phong ---");
+        System.out.print("Chon loai (1-Tieu chuan, 2-Cao cap, 3-Suite): ");
+        int loai = Integer.parseInt(sc.nextLine());
+        
+        System.out.print("Ma phong: "); String ma = sc.nextLine();
+        System.out.print("So phong: "); String so = sc.nextLine();
+        System.out.print("Tang: "); int tang = Integer.parseInt(sc.nextLine());
+        System.out.print("Gia co ban: "); double gia = Double.parseDouble(sc.nextLine());
+        
+        System.out.print("Trang thai (1-TRONG, 2-DA_DAT, 3-DANG_SU_DUNG, 4-BAO_TRI): ");
+        int tt = Integer.parseInt(sc.nextLine());
+        TrangThaiPhong trangThai = TrangThaiPhong.TRONG;
+        if (tt == 2) trangThai = TrangThaiPhong.DA_DAT;
+        else if (tt == 3) trangThai = TrangThaiPhong.DANG_SU_DUNG;
+        else if (tt == 4) trangThai = TrangThaiPhong.BAO_TRI;
+        System.out.print("So nguoi toi da: "); int nguoi = Integer.parseInt(sc.nextLine());
+        System.out.print("So giuong: "); int giuong = Integer.parseInt(sc.nextLine());
+        System.out.print("Dien tich: "); double dt = Double.parseDouble(sc.nextLine());
+        Phong p = null;
+        if (loai == 1) {
+            p = new PhongTieuChuan(ma, so, tang, gia, trangThai, nguoi, giuong, dt);
+        } else if (loai == 2) {
+            System.out.print("Co ban cong? (true/false): ");
+            boolean bc = Boolean.parseBoolean(sc.nextLine());
+            p = new PhongCaoCap(ma, so, tang, gia, trangThai, nguoi, giuong, dt, bc);
+        } else if (loai == 3) {
+            System.out.print("Co phong khach? (true/false): ");
+            boolean pk = Boolean.parseBoolean(sc.nextLine());
+            System.out.print("Co bon tam? (true/false): ");
+            boolean bt = Boolean.parseBoolean(sc.nextLine());
+            p = new PhongSuite(ma, so, tang, gia, trangThai, nguoi, giuong, dt, pk, bt);
+        } else {
+            System.out.println("=> Loai phong khong hop le!");
+            return;
+        }
+        themPhong(p); 
+    }
+    public void themPhong() {
+        themPhong(new Scanner(System.in));
     }
 
     public void xuatDanhSach() {
@@ -183,38 +225,7 @@ public class roomlist {
 
         for (int i = 0; i < n; i++) {
             System.out.println("--- Nhap phong thu " + (i + 1) + " ---");
-            System.out.print("Chon loai (1-Tieu chuan, 2-Cao cap, 3-Suite): ");
-            int loai = Integer.parseInt(sc.nextLine());
-            
-            System.out.print("Ma phong: "); String ma = sc.nextLine();
-            System.out.print("So phong: "); String so = sc.nextLine();
-            System.out.print("Tang: "); int tang = Integer.parseInt(sc.nextLine());
-            System.out.print("Gia co ban: "); double gia = Double.parseDouble(sc.nextLine());
-            
-            System.out.print("Trang thai (1-TRONG, 2-DA_DAT, 3-DANG_SU_DUNG, 4-BAO_TRI): ");
-            int tt = Integer.parseInt(sc.nextLine());
-            TrangThaiPhong trangThai = TrangThaiPhong.TRONG;
-            if (tt == 2) trangThai = TrangThaiPhong.DA_DAT;
-            else if (tt == 3) trangThai = TrangThaiPhong.DANG_SU_DUNG;
-            else if (tt == 4) trangThai = TrangThaiPhong.BAO_TRI;
-
-            System.out.print("So nguoi toi da: "); int nguoi = Integer.parseInt(sc.nextLine());
-            System.out.print("So giuong: "); int giuong = Integer.parseInt(sc.nextLine());
-            System.out.print("Dien tich: "); double dt = Double.parseDouble(sc.nextLine());
-
-            if (loai == 1) {
-                ql.themPhong(new PhongTieuChuan(ma, so, tang, gia, trangThai, nguoi, giuong, dt));
-            } else if (loai == 2) {
-                System.out.print("Co ban cong? (true/false): ");
-                boolean bc = Boolean.parseBoolean(sc.nextLine());
-                ql.themPhong(new PhongCaoCap(ma, so, tang, gia, trangThai, nguoi, giuong, dt, bc));
-            } else if (loai == 3) {
-                System.out.print("Co phong khach? (true/false): ");
-                boolean pk = Boolean.parseBoolean(sc.nextLine());
-                System.out.print("Co bon tam? (true/false): ");
-                boolean bt = Boolean.parseBoolean(sc.nextLine());
-                ql.themPhong(new PhongSuite(ma, so, tang, gia, trangThai, nguoi, giuong, dt, pk, bt));
-            }
+                ql.themPhong(sc);
         }
 
         // MENU CHINH
