@@ -26,8 +26,13 @@ public class MenuChinh {
 
     public void chay() {
         while (true) {
-            int chon = hienMenu("MENU CHÍNH - QUẢN LÝ KHÁCH SẠN", "Thoát chương trình",
-                    "Quản lý người", "Quản lý phòng", "Quản lý dịch vụ", "Thanh toán", "Hóa đơn");
+            int chon = hienMenu("MENU CHÍNH - QUẢN LÝ KHÁCH SẠN", 
+                                "Thoát chương trình",
+                                "Quản lý người", 
+                                "Quản lý phòng",
+                                "Quản lý dịch vụ", 
+                                "Thanh toán", 
+                                "Hóa đơn");
             if (chon == 6) {
                 if (xacNhanThoat()) {
                     break;
@@ -70,7 +75,10 @@ public class MenuChinh {
     private void menuNguoi() {
         int chon;
         do {
-            chon = hienMenu("QUẢN LÝ NGƯỜI", "Quay lại menu chính", "Quản lý", "Nhân viên", "Khách hàng");
+            chon = hienMenu("QUẢN LÝ NGƯỜI",
+                            "Quay lại menu chính",
+                            "Quản lý", "Nhân viên",
+                            "Khách hàng");
             try {
                 switch (chon) {
                     case 1:
@@ -109,8 +117,8 @@ public class MenuChinh {
                     case 1:
                         quanLyPhong.xuatDanhSach();
                         break;
-                    case 2:
-                        System.out.println("");
+                    case 2:    
+                        quanLyPhong.themPhong(new Scanner(System.in));
                         break;
                     case 3:
                         quanLyPhong.suaPhong(InputHelper.getString("Nhập mã phòng cần sửa: "), new Scanner(System.in));
