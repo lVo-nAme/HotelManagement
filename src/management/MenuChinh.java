@@ -152,7 +152,7 @@ public class MenuChinh {
 
     private void menuDichVu() {
         System.out.println("");
-
+    }
     private void menuThanhToan() {
         int chon;
         do {
@@ -516,6 +516,11 @@ public class MenuChinh {
                 return HoaDon.docNgay(s);
             } catch (IllegalArgumentException e) {
                 System.out.println("Lỗi: " + e.getMessage());
+    
+    private static void baoLoi(RuntimeException e) {
+        System.out.println("=> Lỗi: " + e.getMessage());
+    }
+  
     public static void main(String[] args) {
         MenuChinh menu = new MenuChinh();
         menu.chay();
