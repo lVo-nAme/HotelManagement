@@ -110,8 +110,7 @@ public class MenuChinh {
                         quanLyPhong.xuatDanhSach();
                         break;
                     case 2:
-                        System.out.println("=> CHƯA THỂ KẾT NỐI: code nhập thông tin phòng hiện chỉ nằm trong roomlist.main(),");
-                        System.out.println("   chưa có hàm riêng để gọi. (QuanLyPhong.themPhong(Phong) chỉ nhận phòng đã tạo sẵn.)");
+                        System.out.println("");
                         break;
                     case 3:
                         quanLyPhong.suaPhong(InputHelper.getString("Nhập mã phòng cần sửa: "), new Scanner(System.in));
